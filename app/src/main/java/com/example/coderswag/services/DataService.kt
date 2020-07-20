@@ -14,29 +14,40 @@ object DataService {
     )
 
     val hats = listOf(
-        Product("Beanie", "$15", "hat01"),
-        Product("Hat Black", "$20", "hat02"),
-        Product("Hat White", "$10", "hat03"),
-        Product("Hat Snapback", "$22", "hat04")
+        Product("Beanie", "$15", "hat1"),
+        Product("Hat Black", "$20", "hat2"),
+        Product("Hat White", "$10", "hat3"),
+        Product("Hat Snapback", "$22", "hat4")
     )
 
     val hoodies = listOf(
-        Product("Hoodie Gray", "$15", "hoodie01"),
-        Product("Hoodie Red", "$20", "hoodie02"),
-        Product("Hoodie Gray", "$10", "hoodie03"),
-        Product("Hoodie Black", "$22", "hoodie04")
+        Product("Hoodie Gray", "$15", "hoodie1"),
+        Product("Hoodie Red", "$20", "hoodie2"),
+        Product("Hoodie Gray", "$10", "hoodie3"),
+        Product("Hoodie Black", "$22", "hoodie4")
     )
 
     val shirts = listOf(
-        Product("Shirt Black", "$15", "hoodie01"),
-        Product("Shirt Black", "$20", "hoodie02"),
-        Product("Shirt Logo Red", "$10", "hoodie03"),
-        Product("Shirt Hustle", "$22", "hoodie04"),
-        Product("KickFlip Studios", "$22", "hoodie04")
+        Product("Shirt Black", "$15", "hoodie1"),
+        Product("Shirt Black", "$20", "hoodie2"),
+        Product("Shirt Logo Red", "$10", "hoodie3"),
+        Product("Shirt Hustle", "$22", "hoodie4"),
+        Product("KickFlip Studios", "$22", "hoodie4")
     )
+
+    val digitalGoods = emptyList<Product>()
 
     init {
         println("Singleton ${this::class.java} was initiated with data")
+    }
+
+    fun getProducts(category: String) : List<Product> {
+        return when (category) {
+            "SHIRTS" -> shirts
+            "HATS" -> hats
+            "HOODIES" -> hoodies
+            else -> digitalGoods
+        }
     }
 
 }
